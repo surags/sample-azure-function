@@ -6,6 +6,7 @@
       "type": "eventHubTrigger",
       "direction": "in",
       "eventHubName": "%EventHubName%",
+      "cardinality": "many",
       "connection": "EventHubConnection"
     }
   ]
