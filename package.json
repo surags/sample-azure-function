@@ -1,5 +1,5 @@
 {
-  "name": "Sample ts azure function",
+  "name": "sample-azure-function",
   "version": "0.1.0",
   "scripts" : {
     "build": "tsc",
