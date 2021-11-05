@@ -12,8 +12,8 @@ jobs:
       - run: npm run build
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This is running on branch ${{ github.head_ref }}"
-      - run: zip -r azureFn-${{ GITHUB_HEAD_REF }}.zip EHTrigger/ dist/ node_modules .funcignore package.json package-lock.json LICENCE NOTICE host.json README.md
+      - run: zip -r azureFn-${{ github.head_ref }}.zip EHTrigger/ dist/ node_modules .funcignore package.json package-lock.json LICENCE NOTICE host.json README.md
       - uses: actions/upload-artifact@v2
         with:
-          name: azureFn-${{ GITHUB_HEAD_REF }}.zip
-          path: ./azureFn-${{ GITHUB_HEAD_REF }}.zip
+          name: azureFn-$${{ github.head_ref }}.zip
+          path: ./azureFn-${{ github.head_ref }}.zip
