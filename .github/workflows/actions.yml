@@ -11,7 +11,7 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "This is running on branch ${{ GITHUB_HEAD_REF }}"
+      - run: echo "This is running on branch ${{ github.head_ref }}"
       - run: zip -r azureFn-${{ GITHUB_HEAD_REF }}.zip EHTrigger/ dist/ node_modules .funcignore package.json package-lock.json LICENCE NOTICE host.json README.md
       - uses: actions/upload-artifact@v2
         with:
