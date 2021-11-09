@@ -17,3 +17,17 @@ jobs:
         with:
           name: azureFn-$${{ github.head_ref }}.zip
           path: ./azureFn-${{ github.head_ref }}.zip
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm run build
+      - run: echo "🍏 This job's status is ${{ job.status }}."
+      - run: zip -r azureFn-${{ github.head_ref }}.zip EHTrigger/ dist/ node_modules .funcignore package.json package-lock.json LICENCE NOTICE host.json README.md
+      - uses: softprops/action-gh-release@v1
+        with:
+          files: azureFn-${{ github.head_ref }}.zip
